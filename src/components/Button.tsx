@@ -7,11 +7,11 @@ interface Props {
 }
 
 function Button({ children, disabled = false, onSubmit }: Props) {
-  const handleSubmit: React.FormEventHandler<HTMLButtonElement> = () =>
+  const handleSubmit: React.MouseEventHandler<HTMLButtonElement> = () =>
     onSubmit?.();
 
   return (
-    <button disabled={disabled} onSubmit={handleSubmit}>
+    <button disabled={disabled} onClick={handleSubmit}>
       {children}
     </button>
   );

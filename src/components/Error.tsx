@@ -1,12 +1,16 @@
 import { ValidationErrors } from "../utils/validation";
 
+import css from "./Error.module.css";
+
 const errorMessageMap: Record<ValidationErrors, string> = {
-  [ValidationErrors.LengthError]: "",
-  [ValidationErrors.UppercaseError]: "",
-  [ValidationErrors.LowercaseError]: "",
-  [ValidationErrors.NumberError]: "",
-  [ValidationErrors.SpecialError]: "",
-  [ValidationErrors.MatchError]: "",
+  [ValidationErrors.LengthError]: "LengthError",
+  [ValidationErrors.UppercaseError]:
+    "Password must contain at least one uppercase letter.",
+  [ValidationErrors.LowercaseError]:
+    "Password must contain at least one lowercase letter.",
+  [ValidationErrors.NumberError]: "Password must contain at least one number.",
+  [ValidationErrors.SpecialError]: `Password must contain at least one special character (!@#$%^&*()_-+={[}]|:;"'<,>.).`,
+  [ValidationErrors.MatchError]: "Password must match validation.",
 } as const;
 
 interface Props {
@@ -18,7 +22,9 @@ function Error({ errors }: Props) {
   return (
     <>
       {[...errors].map((error) => (
-        <p>{errorMessageMap[error]}</p>
+        <p className={css.error} key={error}>
+          {errorMessageMap[error]}
+        </p>
       ))}
     </>
   );
