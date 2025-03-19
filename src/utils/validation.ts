@@ -1,30 +1,34 @@
-enum ValidationErrors {
+export enum ValidationErrors {
   LengthError,
   UppercaseError,
   LowercaseError,
   NumberError,
   SpecialError,
+  MatchError,
 }
 
 export const isValidPassword = (
   password: string
-): true | ValidationErrors[] => {
-  const errors: ValidationErrors[] = [];
+): true | Set<ValidationErrors> => {
+  const errors: Set<ValidationErrors> = new Set();
   const passwordCharSet = new Set(password.split(""));
 
-  if (!isLongerThan(password)) errors.push(ValidationErrors.LengthError);
+  if (!isLongerThan(password)) errors.add(ValidationErrors.LengthError);
   if (passwordCharSet.intersection(uppercaseSet).size === 0)
-    errors.push(ValidationErrors.UppercaseError);
+    errors.add(ValidationErrors.UppercaseError);
   if (passwordCharSet.intersection(lowercaseSet).size === 0)
-    errors.push(ValidationErrors.LowercaseError);
+    errors.add(ValidationErrors.LowercaseError);
   if (passwordCharSet.intersection(digitSet).size === 0)
-    errors.push(ValidationErrors.NumberError);
+    errors.add(ValidationErrors.NumberError);
   if (passwordCharSet.intersection(specialSet).size === 0)
-    errors.push(ValidationErrors.SpecialError);
+    errors.add(ValidationErrors.SpecialError);
 
-  if (errors.length > 0) return errors;
+  if (errors.size > 0) return errors;
   return true;
 };
+
+export const isMatching = (string1: string, string2: string) =>
+  string1 === string2;
 
 const isLongerThan = (testString: string, minCharacters = 6) => {
   return testString.length >= minCharacters;
