@@ -1,9 +1,10 @@
-import { ValidationErrors } from "../utils/validation";
+import { ValidationErrors } from "src/utils/validation";
 
 import css from "./Error.module.css";
 
 const errorMessageMap: Record<ValidationErrors, string> = {
-  [ValidationErrors.LengthError]: "LengthError",
+  [ValidationErrors.LengthError]:
+    "Password must be at least 6 characters long.",
   [ValidationErrors.UppercaseError]:
     "Password must contain at least one uppercase letter.",
   [ValidationErrors.LowercaseError]:
