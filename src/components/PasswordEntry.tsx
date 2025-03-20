@@ -38,11 +38,13 @@ function PasswordEntry() {
       ) : (
         <>
           <Input
+            label="Password"
             type="password"
             onChange={setPasswordInput}
             value={passwordInput}
           />
           <Input
+            label="Confirm Password"
             type="password"
             onChange={setValidationInput}
             value={validationInput}
