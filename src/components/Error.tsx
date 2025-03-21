@@ -3,15 +3,14 @@ import { ValidationErrors } from "src/utils/validation";
 import css from "./Error.module.css";
 
 const errorMessageMap: Record<ValidationErrors, string> = {
-  [ValidationErrors.LengthError]:
-    "Password must be at least 6 characters long.",
+  [ValidationErrors.LengthError]: "Must be at least 6 characters long.",
   [ValidationErrors.UppercaseError]:
-    "Password must contain at least one uppercase letter.",
+    "Must contain at least one uppercase letter.",
   [ValidationErrors.LowercaseError]:
-    "Password must contain at least one lowercase letter.",
-  [ValidationErrors.NumberError]: "Password must contain at least one number.",
-  [ValidationErrors.SpecialError]: `Password must contain at least one special character (!@#$%^&*()_-+={[}]|:;"'<,>.).`,
-  [ValidationErrors.MatchError]: "Password must match validation.",
+    "Must contain at least one lowercase letter.",
+  [ValidationErrors.NumberError]: "Must contain at least one number.",
+  [ValidationErrors.SpecialError]: `Must contain at least one special character (!@#$%^&*()_-+={[}]|:;"'<,>.).`,
+  [ValidationErrors.MatchError]: "Must match confirmation.",
 } as const;
 
 interface Props {

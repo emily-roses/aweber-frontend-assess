@@ -5,6 +5,7 @@ import { isValidPassword, ValidationErrors } from "src/utils/validation";
 
 import css from "./PasswordEntry.module.css";
 import { useEffect, useState } from "react";
+import Success from "./Success";
 
 function PasswordEntry() {
   const [errorList, setErrorList] = useState<Set<ValidationErrors>>(new Set());
@@ -34,7 +35,7 @@ function PasswordEntry() {
   return (
     <div className={css.base}>
       {success ? (
-        <div>Successfully set password!</div>
+        <Success />
       ) : (
         <>
           <Input

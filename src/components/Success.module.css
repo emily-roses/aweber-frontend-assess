@@ -1,0 +1,9 @@
+.base {
+  color: darkgreen;
+  display: flex;
+  gap: 12px;
+
+  svg {
+    height: 24px;
+  }
+}
