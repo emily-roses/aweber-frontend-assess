@@ -1,5 +1,9 @@
 .base {
-  background-color: rgb(219, 219, 219);
+  background-color: color-mix(
+    in srgb,
+    var(--background-color) 80%,
+    rgb(122, 122, 122) 20%
+  );
   padding: 16px;
   width: 256px;
 }
