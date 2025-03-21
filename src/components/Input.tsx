@@ -9,7 +9,7 @@ interface Props {
 }
 
 function Input({ label, onChange, placeholder, type = "text", value }: Props) {
-  const id = useId();
+  const id = useId(); // generate unique id to connect label and input
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) =>
     onChange?.(e.target.value);
 

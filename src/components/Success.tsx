@@ -2,6 +2,7 @@ import css from "./Success.module.css";
 
 function Success() {
   return (
+    // checkmark icon svg taken from https://www.visiwig.com/icons/
     <div className={css.base}>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <g fill="currentColor">
